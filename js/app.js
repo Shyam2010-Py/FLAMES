@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  const APP_VERSION = '1.0.1';
+  const APP_VERSION = '1.0.3';
 
   const CATEGORIES = {
     F: { name: 'Friends', emoji: '🤝', desc: 'According to the traditional FLAMES game, your result is Friends.', tone: 'friends' },
@@ -45,10 +45,6 @@
       if (!usedB[j]) remaining2.push(b[j]);
     }
     return { remaining1, remaining2, count: remaining1.length + remaining2.length };
-  }
-
-  function calculateRemainingCount(name1, name2) {
-    return cancelCommonLetters(name1, name2).count;
   }
 
   function calculateFlamesResult(count) {
@@ -345,6 +341,5 @@
     });
   }
 
-  // Expose only the version for optional diagnostics.
   window.FLAMES_APP_VERSION = APP_VERSION;
 })();
