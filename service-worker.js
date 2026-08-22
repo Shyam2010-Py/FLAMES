@@ -1,8 +1,9 @@
-/* FLAMES Service Worker
+/* FLAMES Service Worker v1.0.1
+   - Network-first for HTML
    - Cache-first for static assets
    - Versioned cache with automatic cleanup
 */
-const CACHE_VERSION = 'flames-v1.0.0';
+const CACHE_VERSION = 'flames-v1.0.1';
 const ASSETS = [
   './',
   './index.html',
@@ -37,12 +38,11 @@ self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
 
-  // Network-first for HTML, cache-first for everything else
-  const isHTML = req.headers.get('accept') && req.headers.get('accept').includes('text/html');
+  const isHTML = (req.headers.get('accept') || '').includes('text/html');
 
   if (isHTML) {
     event.respondWith(
-      fetch(req)
+      fetch(req, { cache: 'no-store' })
         .then((res) => {
           const copy = res.clone();
           caches.open(CACHE_VERSION).then((c) => c.put(req, copy));
@@ -60,7 +60,7 @@ self.addEventListener('fetch', (event) => {
             caches.open(CACHE_VERSION).then((c) => c.put(req, copy));
           }
           return res;
-        }).catch(() => cached);
+        });
       })
     );
   }
