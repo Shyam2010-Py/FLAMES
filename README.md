@@ -24,36 +24,6 @@ A polished, mobile-first web app that brings the traditional **FLAMES** name gam
 
 ---
 
-## 🚀 Quick Start
-
-### Run locally
-
-Just open `index.html` in any modern browser. That's it.
-
-```bash
-# Optional: serve over HTTP for full PWA support
-python3 -m http.server 8080
-# then visit http://localhost:8080
-```
-
-### Generate app icons
-
-The `assets/icons/` folder ships with `favicon.svg` and a small helper `generate.html`. Open `assets/icons/generate.html` in your browser once and click the three buttons to download:
-
-- `icon-192.png`
-- `icon-512.png`
-- `maskable-512.png`
-
-You can then delete `generate.html`.
-
-### Deploy to GitHub Pages
-
-1. Push the `FLAMES/` directory to a GitHub repository.
-2. Go to **Settings → Pages**.
-3. Set the source to the branch containing the folder (e.g., `main` / `/root`).
-4. Your app is live at `https://<user>.github.io/<repo>/`.
-
----
 
 ## 📁 Project Structure
 
@@ -74,7 +44,6 @@ FLAMES/
 └── README.md
 ```
 
----
 
 ## 🧠 How FLAMES Works
 
