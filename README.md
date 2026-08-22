@@ -4,7 +4,7 @@ A polished, mobile-first web app that brings the traditional **FLAMES** name gam
 
 > **FLAMES is a traditional game for fun and does not measure real compatibility.**
 
-![Version](https://img.shields.io/badge/version-1.0.1-orange)
+![Version](https://img.shields.io/badge/version-1.0.3-orange)
 ![Status](https://img.shields.io/badge/status-stable-success)
 ![Tech](https://img.shields.io/badge/tech-HTML5%20%2B%20CSS3%20%2B%20Vanilla%20JS-blue)
 ![PWA](https://img.shields.io/badge/PWA-supported-orange)
@@ -21,16 +21,17 @@ A polished, mobile-first web app that brings the traditional **FLAMES** name gam
 - ♿ **Accessible** — semantic HTML, keyboard navigation, focus states, and reduced-motion support
 - 🔒 **Private** — 100% client-side; entered names are never uploaded
 - 🧪 **Input validation** — including normalized same-name detection
+- ✍️ **Website credit** — visible creator credit for Ghanashyam Pabbuleti
 
 ## 📁 Project Structure
 
 ```text
 FLAMES/
 ├── index.html              # App shell and five screens
-├── manifest.json           # PWA manifest
+├── manifest.json           # PWA manifest and app version
 ├── service-worker.js       # Versioned offline cache
 ├── css/
-│   └── style.css           # Application styling
+│   └── style.css           # Application styling and website credit
 ├── js/
 │   └── app.js              # FLAMES algorithm and UI controller
 ├── assets/
@@ -94,7 +95,7 @@ The PNG icons are already included in the repository. **No icon generator is req
 
 ## 📱 PWA
 
-The app includes a versioned service worker and the required PNG/SVG icons. Once installed, previously cached application assets remain available offline.
+The app includes a versioned service worker and the required PNG/SVG icons. The **1.0.3** cache version automatically removes older FLAMES caches when the new service worker activates.
 
 ## 🚀 Deployment
 
@@ -109,7 +110,7 @@ For GitHub Pages:
 
 ## 📜 Version
 
-**1.0.1** — Maintenance release with improved normalized same-name validation and documentation cleanup.
+**1.0.3** — Website credit and PWA cache/version synchronization release.
 
 See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 
@@ -118,5 +119,7 @@ See [`CHANGELOG.md`](CHANGELOG.md) for release history.
 MIT — free to use, modify, and share.
 
 ## 🙏 Credits
+
+**Made by Ghanashyam Pabbuleti.**
 
 Built as a small, focused entertainment project inspired by the traditional FLAMES game.
