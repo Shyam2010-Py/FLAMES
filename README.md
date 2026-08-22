@@ -1,107 +1,122 @@
 # 🔥 FLAMES — The Classic Name Game
 
-A polished, mobile-first web app that brings the traditional **FLAMES** name game to life — with smooth animations, a premium dark theme, offline support, and zero data collection.
+A polished, mobile-first web app that brings the traditional **FLAMES** name game to life with smooth animations, a premium dark theme, PWA support, offline functionality, and zero data collection.
 
 > **FLAMES is a traditional game for fun and does not measure real compatibility.**
 
-![Status](https://img.shields.io/badge/status-ready-success)
+![Version](https://img.shields.io/badge/version-1.0.1-orange)
+![Status](https://img.shields.io/badge/status-stable-success)
 ![Tech](https://img.shields.io/badge/tech-HTML5%20%2B%20CSS3%20%2B%20Vanilla%20JS-blue)
 ![PWA](https://img.shields.io/badge/PWA-supported-orange)
 
----
-
 ## ✨ Features
 
-- 🎮 **Classic FLAMES algorithm** — faithful to the traditional letter-cancellation method
-- 🎬 **Animated calculation** — watch letters cancel and the FLAMES elimination in real time
-- 🏆 **Six result categories** — Friends, Love, Affection, Marriage, Enemies, Siblings — each with its own visual treatment
+- 🎮 **Classic FLAMES algorithm** — deterministic letter-cancellation and elimination
+- 🎬 **Animated calculation** — watch the calculation and FLAMES elimination
+- 🏆 **Six result categories** — Friends, Love, Affection, Marriage, Enemies, Siblings
 - 📋 **Copy & Share** — Web Share API with clipboard fallback
-- 📱 **Mobile-first** — looks great on phones, tablets, and desktops
-- 🌑 **Premium dark theme** — glassmorphism, soft shadows, flame-gradient accents
-- 🚀 **PWA** — installable, works offline after first visit
-- ♿ **Accessible** — semantic HTML, keyboard navigation, reduced-motion support
-- 🔒 **Private** — 100% client-side. No names are ever sent anywhere.
-
----
-
+- 📱 **Mobile-first** — responsive across phones, tablets, and desktops
+- 🌑 **Premium dark theme** — glassmorphism, soft shadows, and flame-inspired accents
+- 🚀 **PWA** — installable and usable offline after the first visit
+- ♿ **Accessible** — semantic HTML, keyboard navigation, focus states, and reduced-motion support
+- 🔒 **Private** — 100% client-side; entered names are never uploaded
+- 🧪 **Input validation** — including normalized same-name detection
 
 ## 📁 Project Structure
 
-```
+```text
 FLAMES/
-├── index.html              # App shell & screens
+├── index.html              # App shell and five screens
 ├── manifest.json           # PWA manifest
-├── service-worker.js       # Offline cache
+├── service-worker.js       # Versioned offline cache
 ├── css/
-│   └── style.css           # Premium dark theme
+│   └── style.css           # Application styling
 ├── js/
-│   └── app.js              # FLAMES algorithm + UI
+│   └── app.js              # FLAMES algorithm and UI controller
 ├── assets/
 │   └── icons/
 │       ├── favicon.svg
-│       ├── generate.html   # One-time icon generator
-│       └── (PNG icons generated via generate.html)
+│       ├── icon-192.png
+│       ├── icon-512.png
+│       └── maskable-512.png
+├── CHANGELOG.md
 └── README.md
 ```
 
+The PNG icons are already included in the repository. **No icon generator is required for deployment.**
 
 ## 🧠 How FLAMES Works
 
 1. Enter two names.
-2. Cancel common letters between them.
-3. Count the remaining (uncancelled) letters.
-4. Starting at F, count around `F L A M E S` using that count.
-5. Eliminate the letter you land on.
-6. Continue until only one letter remains — that is your result.
+2. Normalize the names and remove irrelevant characters.
+3. Cancel common letters between the names.
+4. Count the remaining letters.
+5. Starting at F, count around `F L A M E S` using that count.
+6. Eliminate the selected letter and continue until one remains.
+7. The final letter determines the result.
 
-| Letter | Category  | Emoji |
-| :----: | :-------- | :---: |
-| F      | Friends   | 🤝 |
-| L      | Love      | 💕 |
-| A      | Affection | 💛 |
-| M      | Marriage  | 💍 |
-| E      | Enemies   | ⚡ |
-| S      | Siblings  | 👨‍👩‍👧 |
-
----
+| Letter | Category | Emoji |
+| :----: | :------- | :---: |
+| F | Friends | 🤝 |
+| L | Love | 💕 |
+| A | Affection | 💛 |
+| M | Marriage | 💍 |
+| E | Enemies | ⚡ |
+| S | Siblings | 👨‍👩‍👧 |
 
 ## 🛠️ Tech Stack
 
 - **HTML5** — semantic structure
-- **CSS3** — custom properties, glassmorphism, animations
-- **Vanilla JavaScript** — modular IIFE with pure-function algorithm
-- **PWA** — manifest + service worker (offline-first)
+- **CSS3** — custom properties, responsive layout, animations
+- **Vanilla JavaScript** — modular client-side algorithm and UI controller
+- **PWA** — manifest + service worker
 - **No frameworks, no build step, no backend**
-
----
 
 ## ♿ Accessibility
 
-- Semantic landmarks (`<main>`, `<nav>`, `<section>`)
-- Visible focus rings
+- Semantic landmarks
+- Visible focus states
 - `aria-live` regions for calculation progress
-- Inline validation messages (no `alert()`)
-- `prefers-reduced-motion` honored — animations gracefully disabled
+- Inline validation messages
+- `prefers-reduced-motion` support
 - Skip-to-content link
-
----
+- Keyboard-friendly controls
 
 ## 🔒 Privacy
 
 - No analytics
-- No cookies
-- No network requests for user input
-- Calculation runs entirely in the browser
-- The only network activity is fetching the static assets themselves
+- No accounts
+- No cookies used for the game
+- No location collection
+- No network requests containing entered names
+- All calculations run locally in the browser
+- Static assets may be fetched normally by the browser/PWA
 
----
+## 📱 PWA
 
-## 📜 License
+The app includes a versioned service worker and the required PNG/SVG icons. Once installed, previously cached application assets remain available offline.
+
+## 🚀 Deployment
+
+FLAMES is a static website and requires no build process.
+
+For GitHub Pages:
+
+1. Push the repository to GitHub.
+2. Open **Settings → Pages**.
+3. Select the `main` branch and the root folder.
+4. Save and open the generated Pages URL.
+
+## 📜 Version
+
+**1.0.1** — Maintenance release with improved normalized same-name validation and documentation cleanup.
+
+See [`CHANGELOG.md`](CHANGELOG.md) for release history.
+
+## 📄 License
 
 MIT — free to use, modify, and share.
 
----
-
 ## 🙏 Credits
 
-Built with care as a small, focused entertainment product. Inspired by the traditional FLAMES game many of us grew up playing.
+Built as a small, focused entertainment project inspired by the traditional FLAMES game.
