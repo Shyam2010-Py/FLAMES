@@ -2,6 +2,20 @@
 
 All notable changes to **FLAMES — The Classic Name Game** are documented here.
 
+## [1.0.3] — 2026-08-22
+
+### 🛠️ Website Credit & PWA Synchronization Release
+
+#### Fixed
+- **Website credit visibility** — added a dedicated, responsive footer credit reading **Made by Ghanashyam Pabbuleti** so it remains visible above the mobile navigation and at the bottom on desktop.
+- **PWA stale-cache issue** — service-worker cache is now `flames-v1.0.3`, which removes older FLAMES caches during activation.
+
+#### Updated
+- Application version in `index.html` updated to **1.0.3**.
+- Application version exposed by `js/app.js` updated to **1.0.3**.
+- PWA manifest now records application version **1.0.3**.
+- README synchronized with the 1.0.3 release.
+
 ## [1.0.1] — 2026-08-22
 
 ### 🛠️ Maintenance Release
