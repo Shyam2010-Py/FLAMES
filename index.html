@@ -4,118 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="FLAMES — The Classic Name Game. Enter two names and let the traditional FLAMES game decide your fun relationship category." />
-  <meta name="application-version" content="1.0.1" />
+  <meta name="application-version" content="1.0.2" />
   <meta name="theme-color" content="#0b0b10" />
   <meta name="color-scheme" content="dark" />
-
   <title>🔥 FLAMES — The Classic Name Game</title>
-
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
   <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div class="bg-ambient" aria-hidden="true">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-  </div>
-
+  <div class="bg-ambient" aria-hidden="true"><div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div></div>
   <a class="skip-link" href="#main">Skip to main content</a>
-
   <main id="main" class="app">
     <section class="screen screen-hero active" data-screen="hero" aria-label="Welcome">
-      <div class="hero-inner">
-        <div class="brand" aria-hidden="true"><span class="flame-icon">🔥</span></div>
-        <h1 class="title">FLAMES</h1>
-        <p class="tagline">The Classic Name Game</p>
-        <p class="subtitle">Enter two names. Let the classic FLAMES game decide.</p>
-        <div class="hero-actions">
-          <button class="btn btn-primary" data-action="goto-input" type="button"><span>Start Playing</span><span class="btn-arrow" aria-hidden="true">→</span></button>
-          <p class="disclaimer">Just for fun — not a real compatibility test.</p>
-        </div>
-      </div>
+      <div class="hero-inner"><div class="brand" aria-hidden="true"><span class="flame-icon">🔥</span></div><h1 class="title">FLAMES</h1><p class="tagline">The Classic Name Game</p><p class="subtitle">Enter two names. Let the classic FLAMES game decide.</p><div class="hero-actions"><button class="btn btn-primary" data-action="goto-input" type="button"><span>Start Playing</span><span class="btn-arrow" aria-hidden="true">→</span></button><p class="disclaimer">Just for fun — not a real compatibility test.</p></div></div>
     </section>
-
     <section class="screen screen-input" data-screen="input" aria-label="Enter names" hidden>
-      <div class="screen-header">
-        <button class="btn-back" data-action="goto-hero" type="button" aria-label="Go back"><span aria-hidden="true">←</span></button>
-        <h2 class="screen-title">Enter Names</h2>
-        <div class="header-spacer"></div>
-      </div>
-      <form class="name-form" id="nameForm" novalidate>
-        <div class="card input-card">
-          <label class="card-label" for="name1">Your Name</label>
-          <input type="text" id="name1" class="text-input" placeholder="Enter your name..." autocomplete="off" spellcheck="false" maxlength="40" aria-describedby="name1Error" />
-          <p class="error-msg" id="name1Error" role="alert"></p>
-        </div>
-        <div class="card input-card">
-          <label class="card-label" for="name2">Their Name</label>
-          <input type="text" id="name2" class="text-input" placeholder="Enter their name..." autocomplete="off" spellcheck="false" maxlength="40" aria-describedby="name2Error" />
-          <p class="error-msg" id="name2Error" role="alert"></p>
-        </div>
-        <button type="submit" class="btn btn-primary btn-block"><span>🔥 CALCULATE FLAMES</span></button>
-      </form>
+      <div class="screen-header"><button class="btn-back" data-action="goto-hero" type="button" aria-label="Go back"><span aria-hidden="true">←</span></button><h2 class="screen-title">Enter Names</h2><div class="header-spacer"></div></div>
+      <form class="name-form" id="nameForm" novalidate><div class="card input-card"><label class="card-label" for="name1">Your Name</label><input type="text" id="name1" class="text-input" placeholder="Enter your name..." autocomplete="off" spellcheck="false" maxlength="40" aria-describedby="name1Error" /><p class="error-msg" id="name1Error" role="alert"></p></div><div class="card input-card"><label class="card-label" for="name2">Their Name</label><input type="text" id="name2" class="text-input" placeholder="Enter their name..." autocomplete="off" spellcheck="false" maxlength="40" aria-describedby="name2Error" /><p class="error-msg" id="name2Error" role="alert"></p></div><button type="submit" class="btn btn-primary btn-block"><span>🔥 CALCULATE FLAMES</span></button></form>
       <p class="disclaimer small">Your names stay on your device. Nothing is uploaded.</p>
     </section>
-
-    <section class="screen screen-calc" data-screen="calc" aria-label="Calculating" hidden>
-      <div class="calc-container">
-        <h2 class="screen-title center">Calculating...</h2>
-        <div class="calc-steps" id="calcSteps" aria-live="polite"></div>
-        <div class="flames-display" id="flamesDisplay" aria-label="FLAMES letters">
-          <span class="flame-letter" data-key="F" data-meaning="Friends">F</span><span class="flame-letter" data-key="L" data-meaning="Love">L</span><span class="flame-letter" data-key="A" data-meaning="Affection">A</span><span class="flame-letter" data-key="M" data-meaning="Marriage">M</span><span class="flame-letter" data-key="E" data-meaning="Enemies">E</span><span class="flame-letter" data-key="S" data-meaning="Siblings">S</span>
-        </div>
-        <button class="btn btn-ghost" data-action="skip-animation" type="button" hidden id="skipBtn">Skip animation</button>
-      </div>
-    </section>
-
-    <section class="screen screen-result" data-screen="result" aria-label="Result" hidden>
-      <div class="result-container" id="resultContainer">
-        <p class="result-eyebrow">Your FLAMES Result</p>
-        <div class="result-emoji" id="resultEmoji" aria-hidden="true"></div>
-        <h2 class="result-title" id="resultTitle">—</h2>
-        <p class="result-desc" id="resultDesc"></p>
-        <div class="result-actions">
-          <button class="btn btn-primary btn-block" data-action="play-again" type="button"><span>Try Again</span></button>
-          <div class="result-secondary-actions">
-            <button class="btn btn-secondary" data-action="copy-result" type="button"><span aria-hidden="true">📋</span><span>Copy</span></button>
-            <button class="btn btn-secondary" data-action="share-result" type="button"><span aria-hidden="true">📤</span><span>Share</span></button>
-          </div>
-        </div>
-        <p class="copy-feedback" id="copyFeedback" aria-live="polite"></p>
-      </div>
-    </section>
-
-    <section class="screen screen-how" data-screen="how" aria-label="How FLAMES works" hidden>
-      <div class="screen-header">
-        <button class="btn-back" data-action="goto-hero" type="button" aria-label="Go back"><span aria-hidden="true">←</span></button>
-        <h2 class="screen-title">How FLAMES Works</h2>
-        <div class="header-spacer"></div>
-      </div>
-      <div class="how-content">
-        <p class="how-intro">FLAMES is a traditional name game played for fun. It uses a simple letter-counting method to land on one of six relationship categories.</p>
-        <ol class="steps-list">
-          <li class="step-item"><span class="step-num">1</span><div><h3>Enter two names</h3><p>Type your name and another name.</p></div></li>
-          <li class="step-item"><span class="step-num">2</span><div><h3>Match common letters</h3><p>Letters that appear in both names cancel each other out.</p></div></li>
-          <li class="step-item"><span class="step-num">3</span><div><h3>Count remaining letters</h3><p>The unmatched letters from both names are counted together.</p></div></li>
-          <li class="step-item"><span class="step-num">4</span><div><h3>Count through F-L-A-M-E-S</h3><p>Starting at F, count around the word "FLAMES" using the count.</p></div></li>
-          <li class="step-item"><span class="step-num">5</span><div><h3>Eliminate letters</h3><p>Each pass removes one letter. Repeat until one remains.</p></div></li>
-          <li class="step-item"><span class="step-num">6</span><div><h3>The final letter determines the result</h3><p>One of Friends, Love, Affection, Marriage, Enemies, or Siblings.</p></div></li>
-        </ol>
-        <div class="legend-card card"><h3>The Categories</h3><ul class="legend-list"><li><span>F</span> 🤝 Friends</li><li><span>L</span> 💕 Love</li><li><span>A</span> 💛 Affection</li><li><span>M</span> 💍 Marriage</li><li><span>E</span> ⚡ Enemies</li><li><span>S</span> 👨‍👩‍👧 Siblings</li></ul></div>
-        <p class="disclaimer">FLAMES is a traditional game for fun and does not measure real compatibility.</p>
-      </div>
-    </section>
+    <section class="screen screen-calc" data-screen="calc" aria-label="Calculating" hidden><div class="calc-container"><h2 class="screen-title center">Calculating...</h2><div class="calc-steps" id="calcSteps" aria-live="polite"></div><div class="flames-display" id="flamesDisplay" aria-label="FLAMES letters"><span class="flame-letter" data-key="F" data-meaning="Friends">F</span><span class="flame-letter" data-key="L" data-meaning="Love">L</span><span class="flame-letter" data-key="A" data-meaning="Affection">A</span><span class="flame-letter" data-key="M" data-meaning="Marriage">M</span><span class="flame-letter" data-key="E" data-meaning="Enemies">E</span><span class="flame-letter" data-key="S" data-meaning="Siblings">S</span></div><button class="btn btn-ghost" data-action="skip-animation" type="button" hidden id="skipBtn">Skip animation</button></div></section>
+    <section class="screen screen-result" data-screen="result" aria-label="Result" hidden><div class="result-container" id="resultContainer"><p class="result-eyebrow">Your FLAMES Result</p><div class="result-emoji" id="resultEmoji" aria-hidden="true"></div><h2 class="result-title" id="resultTitle">—</h2><p class="result-desc" id="resultDesc"></p><div class="result-actions"><button class="btn btn-primary btn-block" data-action="play-again" type="button"><span>Try Again</span></button><div class="result-secondary-actions"><button class="btn btn-secondary" data-action="copy-result" type="button"><span aria-hidden="true">📋</span><span>Copy</span></button><button class="btn btn-secondary" data-action="share-result" type="button"><span aria-hidden="true">📤</span><span>Share</span></button></div></div><p class="copy-feedback" id="copyFeedback" aria-live="polite"></p></div></section>
+    <section class="screen screen-how" data-screen="how" aria-label="How FLAMES works" hidden><div class="screen-header"><button class="btn-back" data-action="goto-hero" type="button" aria-label="Go back"><span aria-hidden="true">←</span></button><h2 class="screen-title">How FLAMES Works</h2><div class="header-spacer"></div></div><div class="how-content"><p class="how-intro">FLAMES is a traditional name game played for fun. It uses a simple letter-counting method to land on one of six relationship categories.</p><ol class="steps-list"><li class="step-item"><span class="step-num">1</span><div><h3>Enter two names</h3><p>Type your name and another name.</p></div></li><li class="step-item"><span class="step-num">2</span><div><h3>Match common letters</h3><p>Letters that appear in both names cancel each other out.</p></div></li><li class="step-item"><span class="step-num">3</span><div><h3>Count remaining letters</h3><p>The unmatched letters from both names are counted together.</p></div></li><li class="step-item"><span class="step-num">4</span><div><h3>Count through F-L-A-M-E-S</h3><p>Starting at F, count around the word "FLAMES" using the count.</p></div></li><li class="step-item"><span class="step-num">5</span><div><h3>Eliminate letters</h3><p>Each pass removes one letter. Repeat until one remains.</p></div></li><li class="step-item"><span class="step-num">6</span><div><h3>The final letter determines the result</h3><p>One of Friends, Love, Affection, Marriage, Enemies, or Siblings.</p></div></li></ol><div class="legend-card card"><h3>The Categories</h3><ul class="legend-list"><li><span>F</span> 🤝 Friends</li><li><span>L</span> 💕 Love</li><li><span>A</span> 💛 Affection</li><li><span>M</span> 💍 Marriage</li><li><span>E</span> ⚡ Enemies</li><li><span>S</span> 👨‍👩‍👧 Siblings</li></ul></div><p class="disclaimer">FLAMES is a traditional game for fun and does not measure real compatibility.</p></div></section>
   </main>
-
-  <nav class="bottom-nav" aria-label="Primary">
-    <button class="nav-btn active" data-nav="hero" type="button" aria-label="Home"><span aria-hidden="true">🏠</span><span class="nav-label">Home</span></button>
-    <button class="nav-btn" data-nav="input" type="button" aria-label="Play"><span aria-hidden="true">🎮</span><span class="nav-label">Play</span></button>
-    <button class="nav-btn" data-nav="how" type="button" aria-label="How it works"><span aria-hidden="true">📖</span><span class="nav-label">How</span></button>
-  </nav>
-
+  <div class="install-card" id="installCard" hidden role="dialog" aria-labelledby="installTitle" aria-describedby="installDescription"><div class="install-icon" aria-hidden="true">🔥</div><div class="install-copy"><strong id="installTitle">Install FLAMES</strong><span id="installDescription">Keep it on your home screen</span></div><button class="install-btn" id="installButton" type="button">Install</button><button class="install-dismiss" id="dismissInstall" type="button" aria-label="Dismiss install suggestion">×</button></div>
+  <nav class="bottom-nav" aria-label="Primary"><button class="nav-btn active" data-nav="hero" type="button" aria-label="Home"><span aria-hidden="true">🏠</span><span class="nav-label">Home</span></button><button class="nav-btn" data-nav="input" type="button" aria-label="Play"><span aria-hidden="true">🎮</span><span class="nav-label">Play</span></button><button class="nav-btn" data-nav="how" type="button" aria-label="How it works"><span aria-hidden="true">📖</span><span class="nav-label">How</span></button></nav>
   <div id="a11y-status" class="sr-only" aria-live="polite"></div>
   <script src="js/app.js"></script>
 </body>
