@@ -1,7 +1,7 @@
 {
   "name": "FLAMES — The Classic Name Game",
   "short_name": "FLAMES",
-  "description": "Enter two names and let the classic FLAMES game decide your fun relationship category. Just for entertainment.",
+  "description": "Enter two names and let the classic FLAMES game decide their fun relationship category. Just for entertainment.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
@@ -9,6 +9,7 @@
   "background_color": "#0a0a10",
   "theme_color": "#0a0a10",
   "categories": ["entertainment", "games"],
+  "x-app-version": "1.0.3",
   "icons": [
     {
       "src": "assets/icons/icon-192.png",
