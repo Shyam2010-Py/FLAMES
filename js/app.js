@@ -1,7 +1,4 @@
-/* ============================================
-   FLAMES — The Classic Name Game
-   Modular vanilla JS: algorithm + UI controller
-   ============================================ */
+
 
 (function () {
   'use strict';
